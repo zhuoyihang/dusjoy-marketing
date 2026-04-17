@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>都氏家DUSJOY · 货盘战略提案 | 丰火传媒</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --c-bg: #F8F5F0;
+      --c-card: #FFFFFF;
+      --c-border: #E8E2D8;
+      --c-text: #1A1814;
+      --c-muted: #8C7F72;
+      --c-mid: #4A4238;
+      --c-s: #C0392B;
+      --c-s-bg: #FDECEA;
+      --c-a: #E67E22;
+      --c-a-bg: #FEF5E7;
+      --c-b: #27AE60;
+      --c-b-bg: #EAFAF1;
+      --c-c: #2980B9;
+      --c-c-bg: #EBF5FB;
+      --c-d: #8E44AD;
+      --c-d-bg: #F5EEF8;
+      --c-red: #C0392B;
+      --c-green: #27AE60;
+      --font: 'Noto Sans SC', -apple-system, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); background: var(--c-bg); color: var(--c-text); font-size: 14px; line-height: 1.7; }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(248,245,240,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--c-border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 52px;
+    }
+    .nav-brand { font-size: 13px; color: var(--c-muted); font-weight: 400; }
+    .nav-brand strong { color: var(--c-text); font-weight: 600; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a {
+      padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500;
+      color: var(--c-muted); text-decoration: none; transition: all 0.15s;
+    }
+    .nav-links a:hover { background: var(--c-border); color: var(--c-text); }
+    .nav-links a.active { background: var(--c-text); color: #fff; }
+
+    /* Container */
+    .container { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; }
+
+    /* Cover */
+    .cover {
+      text-align: center; padding: 64px 0 56px;
+      border-bottom: 1px solid var(--c-border); margin-bottom: 56px;
+    }
+    .cover-eyebrow {
+      display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 2px;
+      color: var(--c-red); text-transform: uppercase; margin-bottom: 20px;
+      background: var(--c-s-bg); padding: 4px 14px; border-radius: 20px;
+    }
+    .cover h1 { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 16px; }
+    .cover h1 span { color: var(--c-red); }
+    .cover-sub { font-size: 15px; color: var(--c-muted); margin-bottom: 36px; }
+    .cover-meta { display: flex; gap: 32px; justify-content: center; font-size: 13px; color: var(--c-muted); }
+    .cover-meta-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .cover-meta-item .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--c-muted); }
+    .cover-meta-item .val { font-weight: 600; color: var(--c-text); }
+
+    /* Sections */
+    .section { margin-bottom: 64px; }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--c-red);
+      text-transform: uppercase; margin-bottom: 8px;
+    }
+    .section-title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .section-desc { font-size: 14px; color: var(--c-muted); margin-bottom: 28px; max-width: 680px; }
+
+    /* 4-grid cards */
+    .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card { background: var(--c-card); border: 1px solid var(--c-border); border-radius: 12px; padding: 24px; }
+    .card.s { border-color: var(--c-s); background: var(--c-s-bg); }
+    .card.a { border-color: var(--c-a); background: var(--c-a-bg); }
+    .card.b { border-color: var(--c-b); background: var(--c-b-bg); }
+    .card.c { border-color: var(--c-c); background: var(--c-c-bg); }
+    .card.d { border-color: var(--c-d); background: var(--c-d-bg); }
+
+    .card-tag {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      padding: 3px 10px; border-radius: 20px; margin-bottom: 12px;
+    }
+    .card.s .card-tag { background: var(--c-s); color: #fff; }
+    .card.a .card-tag { background: var(--c-a); color: #fff; }
+    .card.b .card-tag { background: var(--c-b); color: #fff; }
+    .card.c .card-tag { background: var(--c-c); color: #fff; }
+    .card.d .card-tag { background: var(--c-d); color: #fff; }
+
+    .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .card-desc { font-size: 13px; color: var(--c-muted); margin-bottom: 16px; line-height: 1.6; }
+    .card-detail { display: flex; flex-direction: column; gap: 6px; }
+    .card-detail-row { display: flex; gap: 8px; font-size: 13px; }
+    .card-detail-row .dt { color: var(--c-muted); min-width: 60px; }
+    .card-detail-row .dd { font-weight: 600; color: var(--c-text); }
+
+    .price-big {
+      display: inline-block; font-size: 32px; font-weight: 800;
+      margin: 10px 0 4px;
+    }
+    .card.s .price-big { color: var(--c-s); }
+    .card.a .price-big { color: var(--c-a); }
+    .card.b .price-big { color: var(--c-b); }
+    .card.c .price-big { color: var(--c-c); }
+    .card.d .price-big { color: var(--c-d); }
+
+    .card-tag2 {
+      display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px;
+      background: rgba(0,0,0,0.07); color: var(--c-muted); margin-top: 8px;
+    }
+
+    /* 1-row grid for B/C/D */
+    .card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+    .card-row .card { min-height: 0; }
+
+    /* Gantt */
+    .gantt-wrap { background: var(--c-card); border: 1px solid var(--c-border); border-radius: 12px; overflow: hidden; }
+    .gantt-header {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .gantt-label-col {
+      padding: 14px 20px; font-size: 12px; font-weight: 700; color: var(--c-muted);
+      text-transform: uppercase; letter-spacing: 1px; background: #FAF8F5;
+      border-right: 1px solid var(--c-border);
+    }
+    .gantt-months {
+      display: grid; grid-template-columns: repeat(12, 1fr);
+    }
+    .gantt-month {
+      padding: 14px 4px; text-align: center; font-size: 11px; font-weight: 600;
+      color: var(--c-muted); background: #FAF8F5; border-right: 1px solid var(--c-border);
+    }
+    .gantt-month:last-child { border-right: none; }
+    .gantt-month.current { background: var(--c-s-bg); color: var(--c-s); }
+
+    .gantt-row { display: grid; grid-template-columns: 180px 1fr; border-bottom: 1px solid var(--c-border); }
+    .gantt-row:last-child { border-bottom: none; }
+    .gantt-row-label { padding: 14px 20px; font-size: 13px; font-weight: 600; border-right: 1px solid var(--c-border); display: flex; align-items: center; gap: 8px; }
+    .gantt-row-label .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .gantt-row.s .gantt-row-label .dot { background: var(--c-s); }
+    .gantt-row.a .gantt-row-label .dot { background: var(--c-a); }
+    .gantt-row.b .gantt-row-label .dot { background: var(--c-b); }
+    .gantt-row.c .gantt-row-label .dot { background: var(--c-c); }
+    .gantt-row.d .gantt-row-label .dot { background: var(--c-d); }
+
+    .gantt-track { padding: 10px 0; display: grid; grid-template-columns: repeat(12, 1fr); position: relative; }
+    .gantt-cell { height: 28px; border-right: 1px solid #F0EDE8; display: flex; align-items: center; justify-content: center; }
+    .gantt-cell:last-child { border-right: none; }
+    .gantt-cell.current { background: rgba(192,57,43,0.04); }
+
+    .gantt-bar {
+      height: 22px; border-radius: 4px; display: flex; align-items: center;
+      justify-content: center; font-size: 10px; font-weight: 600; color: #fff;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 4px;
+      position: absolute; top: 13px;
+    }
+    .gantt-row.s .gantt-bar { background: var(--c-s); }
+    .gantt-row.a .gantt-bar { background: var(--c-a); }
+    .gantt-row.b .gantt-bar { background: var(--c-b); }
+    .gantt-row.c .gantt-bar { background: var(--c-c); }
+    .gantt-row.d .gantt-bar { background: var(--c-d); }
+
+    /* Month labels on track */
+    .gantt-row .gantt-month-labels {
+      display: grid; grid-template-columns: repeat(12, 1fr);
+      grid-column: 2; position: relative; height: 0;
+    }
+
+    /* Phase annotation */
+    .gantt-legend { display: flex; gap: 20px; padding: 14px 20px; background: #FAF8F5; border-top: 1px solid var(--c-border); flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--c-muted); }
+    .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .legend-line { width: 20px; height: 3px; border-radius: 2px; }
+
+    /* Phase blocks */
+    .phase-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+    .phase-block {
+      background: var(--c-card); border: 1px solid var(--c-border);
+      border-radius: 10px; padding: 20px;
+    }
+    .phase-block .phase-tag {
+      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .phase-block h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .phase-block p { font-size: 12px; color: var(--c-muted); line-height: 1.6; margin-bottom: 10px; }
+    .phase-tasks { display: flex; flex-direction: column; gap: 5px; }
+    .phase-task { font-size: 12px; display: flex; align-items: flex-start; gap: 6px; }
+    .phase-task::before { content: '→'; color: var(--c-muted); flex-shrink: 0; margin-top: 1px; }
+
+    /* 运营总汇报框架 */
+    .report-flow { display: flex; flex-direction: column; gap: 0; }
+    .report-step { display: flex; gap: 0; }
+    .report-step-left {
+      width: 180px; flex-shrink: 0; padding: 18px 20px;
+      border: 1px solid var(--c-border); border-right: none;
+      background: var(--c-card);
+    }
+    .report-step-left .step-num { font-size: 10px; font-weight: 700; color: var(--c-muted); letter-spacing: 1px; text-transform: uppercase; }
+    .report-step-left .step-name { font-size: 14px; font-weight: 700; margin-top: 2px; }
+    .report-step-left .step-desc { font-size: 11px; color: var(--c-muted); margin-top: 4px; }
+    .report-step-right {
+      flex: 1; padding: 18px 20px; border: 1px solid var(--c-border);
+      background: #FAF8F5;
+    }
+    .report-step.right-align .report-step-left { border-right: 1px solid var(--c-border); border-left: none; text-align: right; }
+    .report-step.right-align .report-step-right { border-right: none; }
+
+    /* Strategy cards */
+    .strategy-box {
+      background: var(--c-card); border: 1px solid var(--c-border);
+      border-radius: 10px; padding: 24px; margin-bottom: 20px;
+    }
+    .strategy-box h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .strategy-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .strategy-box li { font-size: 13px; color: var(--c-mid); padding-left: 16px; position: relative; }
+    .strategy-box li::before { content: '·'; position: absolute; left: 0; color: var(--c-muted); }
+    .strategy-box .note { font-size: 12px; color: var(--c-muted); margin-top: 8px; font-style: italic; }
+
+    /* D货盘 门店例表 */
+    .d-table { background: var(--c-card); border: 1px solid var(--c-border); border-radius: 12px; overflow: hidden; }
+    .d-table table { width: 100%; border-collapse: collapse; }
+    .d-table th { background: #FAF8F5; padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 600; color: var(--c-muted); border-bottom: 1px solid var(--c-border); }
+    .d-table td { padding: 12px 16px; font-size: 13px; border-bottom: 1px solid var(--c-border); vertical-align: top; }
+    .d-table tr:last-child td { border-bottom: none; }
+    .d-table .store { font-weight: 600; }
+    .d-table .tag { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; background: var(--c-d-bg); color: var(--c-d); font-weight: 600; }
+
+    /* Footer */
+    .footer { border-top: 1px solid var(--c-border); padding: 24px 0; text-align: center; font-size: 12px; color: var(--c-muted); }
+
+    @media (max-width: 768px) {
+      .card-grid, .card-row, .phase-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .cover h1 { font-size: 26px; }
+      .cover-meta { flex-wrap: wrap; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-brand"><strong>都氏家 DUSJOY</strong> · 货盘战略提案</div>
+  <div class="nav-links">
+    <a href="index.html">合作提案</a>
+    <a href="javascript:void(0)" class="active">货盘战略</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- Cover -->
+  <div class="cover">
+    <div class="cover-eyebrow">内部工作提案 · SABC货盘体系</div>
+    <h1>都氏家 DUSJOY<br><span>年度货盘战略规划</span></h1>
+    <p class="cover-sub">S · A · B · C 四级货盘体系 · 甘特图节奏落地</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="label">提案方</span>
+        <span class="val">四川丰火传媒</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="label">委托方</span>
+        <span class="val">都氏家 DUSJOY</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="label">规划周期</span>
+        <span class="val">2026.04 – 2027.01</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="label">版本</span>
+        <span class="val">V1.0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part 01: 货盘体系定义 -->
+  <div class="section">
+    <div class="section-label">Part 01</div>
+    <h2 class="section-title">SABC 货盘体系 · 四级定义</h2>
+    <p class="section-desc">四套货盘对应不同营销目标，从品牌最低折扣到门店盈利勾子，逻辑闭环，层层递进。</p>
+
+    <!-- S + A -->
+    <div class="card-grid" style="margin-bottom: 0;">
+      <div class="card s">
+        <span class="card-tag">S · 超级货盘</span>
+        <h3>品牌最低折扣 · 年度集中引爆</h3>
+        <p class="card-desc">用于品牌大型周年庆活动，平台流量集中爆发，驱动淡季短期用户涌入，为全年流量高点。</p>
+        <div class="price-big">6折</div>
+        <div style="font-size:12px;color:var(--c-muted);margin-bottom:12px;">建议面值 · 有效期1个月</div>
+        <div class="card-detail">
+          <div class="card-detail-row"><span class="dt">典型场景</span><span class="dd">周年庆 / 大型营销节点</span></div>
+          <div class="card-detail-row"><span class="dt">年度频次</span><span class="dd">2次（3-4月 / 8-9月）</span></div>
+          <div class="card-detail-row"><span class="dt">平台补贴</span><span class="dd">5-8%，折后约5折</span></div>
+          <div class="card-detail-row"><span class="dt">核心目标</span><span class="dd">淡季爆发 · 品牌声量高点</span></div>
+          <div class="card-detail-row"><span class="dt">决策层级</span><span class="dd">集团总部 · 品牌方审批</span></div>
+        </div>
+        <div class="card-tag2">餐饮神仙难过三四月 · 暑期结束低谷</div>
+      </div>
+
+      <div class="card a">
+        <span class="card-tag">A · 常规活动货盘</span>
+        <h3>营业额补足 · 中弱门店短期弥补</h3>
+        <p class="card-desc">针对过往品牌7折代金券通过平台补贴达6.5折案例，一周售出2000张，快速补足营业缺口。</p>
+        <div class="price-big">6.5折</div>
+        <div style="font-size:12px;color:var(--c-muted);margin-bottom:12px;">历史验证 · 短期集中售卖</div>
+        <div class="card-detail">
+          <div class="card-detail-row"><span class="dt">触发条件</span><span class="dd">门店月度目标有缺口时前置启动</span></div>
+          <div class="card-detail-row"><span class="dt">典型战绩</span><span class="dd">一周核销 2000 张</span></div>
+          <div class="card-detail-row"><span class="dt">覆盖范围</span><span class="dd">连锁中弱门店 / 时段缺口</span></div>
+          <div class="card-detail-row"><span class="dt">决策层级</span><span class="dd">运营总 / 大店长</span></div>
+          <div class="card-detail-row"><span class="dt">前置逻辑</span><span class="dd">时间过半目标未达，即刻触发</span></div>
+        </div>
+        <div class="card-tag2">营业额补足 · 临时性战术工具</div>
+      </div>
+    </div>
+
+    <!-- B + C -->
+    <div class="card-row">
+      <div class="card b">
+        <span class="card-tag">B · 常规盈利货盘</span>
+        <h3>日常稳定盈利 · 维护客单价</h3>
+        <p class="card-desc">日常常规货盘，依托新品上新款更新，波动性小，保障门店基础毛利率与客群稳定性。</p>
+        <div class="price-big" style="font-size:24px;">8.5折起</div>
+        <div class="card-detail" style="margin-top:10px;">
+          <div class="card-detail-row"><span class="dt">典型产品</span><span class="dd">9.8折代金券 / 8.5折套餐</span></div>
+          <div class="card-detail-row"><span class="dt">更新频率</span><span class="dd">随新品上线调整</span></div>
+          <div class="card-detail-row"><span class="dt">核心目标</span><span class="dd">稳定毛利率 · 维护日常客流</span></div>
+        </div>
+      </div>
+
+      <div class="card c">
+        <span class="card-tag">C · 常规盈利货盘</span>
+        <h3>高粘性留存 · 锁定复购用户</h3>
+        <p class="card-desc">面向高频复购老客的高折扣货盘，提升用户粘性，结合会员体系使用，驱动多次到店。</p>
+        <div class="price-big" style="font-size:24px;">8折起</div>
+        <div class="card-detail" style="margin-top:10px;">
+          <div class="card-detail-row"><span class="dt">典型产品</span><span class="dd">专属老客套餐 / 会员专享券</span></div>
+          <div class="card-detail-row"><span class="dt">更新频率</span><span class="dd">结合会员日 / 品牌节日</span></div>
+          <div class="card-detail-row"><span class="dt">核心目标</span><span class="dd">老客复购率提升 · 会员体系</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D货盘单独展示 -->
+    <div class="card-row" style="margin-top: 16px;">
+      <div class="card d" style="grid-column: 1 / -1;">
+        <span class="card-tag">D · 勾子货盘</span>
+        <h3>一店一策 · 精准打击时段弱点</h3>
+        <p class="card-desc">通过具体到门店某个时段的弱点周期，精确设计勾子产品，是连锁门店精细化运营的核心工具。</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px;">
+          <div>
+            <div style="font-size:13px;font-weight:600;margin-bottom:8px;">设计逻辑</div>
+            <div class="card-detail">
+              <div class="card-detail-row"><span class="dt">时间维度</span><span class="dd">工作日套餐 / 午市 / 晚市低峰</span></div>
+              <div class="card-detail-row"><span class="dt">空间维度</span><span class="dd">一店一策，根据门店实际情况出发</span></div>
+              <div class="card-detail-row"><span class="dt">决策层级</span><span class="dd">单店店长 + 运营总确认</span></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:600;margin-bottom:8px;">典型应用</div>
+            <div class="card-detail">
+              <div class="card-detail-row"><span class="dt">仁和新城</span><span class="dd">节假日 / 春节南门人员流动大，节后补投</span></div>
+              <div class="card-detail-row"><span class="dt">弱店补强</span><span class="dd">工作日午市专享套餐，提高翻台率</span></div>
+              <div class="card-detail-row"><span class="dt">时段勾子</span><span class="dd">下午茶/宵夜时段折扣，引导错峰消费</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Part 02: 甘特图 -->
+  <div class="section">
+    <div class="section-label">Part 02</div>
+    <h2 class="section-title">年度货盘节奏 · 甘特图</h2>
+    <p class="section-desc">从 2026年4月 到 2027年1月，S/A/B/C/D 五级货盘全年排布一目了然。</p>
+
+    <div class="gantt-wrap">
+      <!-- Header -->
+      <div class="gantt-header">
+        <div class="gantt-label-col">货盘 / 月份</div>
+        <div class="gantt-months">
+          <div class="gantt-month">4月</div>
+          <div class="gantt-month">5月</div>
+          <div class="gantt-month">6月</div>
+          <div class="gantt-month">7月</div>
+          <div class="gantt-month">8月</div>
+          <div class="gantt-month">9月</div>
+          <div class="gantt-month">10月</div>
+          <div class="gantt-month">11月</div>
+          <div class="gantt-month">12月</div>
+          <div class="gantt-month">1月</div>
+          <div class="gantt-month">2月</div>
+          <div class="gantt-month" style="color:var(--c-muted)">—</div>
+        </div>
+      </div>
+
+      <!-- Row S -->
+      <div class="gantt-row s">
+        <div class="gantt-row-label">
+          <span class="dot"></span>
+          <span>S超级货盘</span>
+        </div>
+        <div style="position:relative;padding:10px 0;">
+          <!-- 3-4月S: 4月全月 -->
+          <div class="gantt-bar" style="left:calc(0% + 0px);width:calc(8.33% - 2px);">S-1 周年庆</div>
+          <!-- 8-9月S: 8-9月 -->
+          <div class="gantt-bar" style="left:calc(4*8.33%);width:calc(16.66% - 2px);">S-2 暑期庆</div>
+          <!-- 春节S: 1月 -->
+          <div class="gantt-bar" style="left:calc(9*8.33%);width:calc(8.33% - 2px);">S-3 春节</div>
+        </div>
+      </div>
+
+      <!-- Row A -->
+      <div class="gantt-row a">
+        <div class="gantt-row-label">
+          <span class="dot"></span>
+          <span>A常规活动</span>
+        </div>
+        <div style="position:relative;padding:10px 0;">
+          <!-- 520: 5月 -->
+          <div class="gantt-bar" style="left:calc(1*8.33%);width:calc(8.33% - 2px);">520节点</div>
+          <!-- 端午: 6月 -->
+          <div class="gantt-bar" style="left:calc(2*8.33%);width:calc(8.33% - 2px);">端午</div>
+          <!-- 暑期A: 7月 -->
+          <div class="gantt-bar" style="left:calc(3*8.33%);width:calc(8.33% - 2px);">暑期补投</div>
+          <!-- 国庆: 10月 -->
+          <div class="gantt-bar" style="left:calc(6*8.33%);width:calc(8.33% - 2px);">国庆A</div>
+          <!-- 双11: 11月 -->
+          <div class="gantt-bar" style="left:calc(7*8.33%);width:calc(8.33% - 2px);">双11</div>
+          <!-- 元旦: 12月底 -->
+          <div class="gantt-bar" style="left:calc(8*8.33%);width:calc(8.33% - 2px);">元旦</div>
+          <!-- 春节A: 1月 -->
+          <div class="gantt-bar" style="left:calc(9*8.33%);width:calc(8.33% - 2px);">春节A</div>
+        </div>
+      </div>
+
+      <!-- Row B -->
+      <div class="gantt-row b">
+        <div class="gantt-row-label">
+          <span class="dot"></span>
+          <span>B常规盈利</span>
+        </div>
+        <div style="position:relative;padding:10px 0;">
+          <!-- B全年常驻 -->
+          <div class="gantt-bar" style="left:0;width:100%;opacity:0.6;">日常常驻 · 随新品更新</div>
+        </div>
+      </div>
+
+      <!-- Row C -->
+      <div class="gantt-row c">
+        <div class="gantt-row-label">
+          <span class="dot"></span>
+          <span>C留存货盘</span>
+        </div>
+        <div style="position:relative;padding:10px 0;">
+          <!-- C常驻 + 节点加强 -->
+          <div class="gantt-bar" style="left:0;width:100%;opacity:0.5;">日常常驻 · 会员日加强</div>
+        </div>
+      </div>
+
+      <!-- Row D -->
+      <div class="gantt-row d">
+        <div class="gantt-row-label">
+          <span class="dot"></span>
+          <span>D勾子货盘</span>
+        </div>
+        <div style="position:relative;padding:10px 0;">
+          <!-- D弹性，根据门店实际，标注为主 -->
+          <div class="gantt-bar" style="left:0;width:100%;opacity:0.35;font-size:9px;color:#fff;">一店一策 · 灵活触发（运营总按需启动）</div>
+        </div>
+      </div>
+
+      <!-- Legend -->
+      <div class="gantt-legend">
+        <div class="legend-item"><div class="legend-line" style="background:var(--c-s);"></div>S 超级货盘（年度2次集中引爆）</div>
+        <div class="legend-item"><div class="legend-line" style="background:var(--c-a);"></div>A 常规活动（按需触发，营业额补足）</div>
+        <div class="legend-item"><div class="legend-line" style="background:var(--c-b);opacity:0.6;"></div>B 常规盈利（日常常驻）</div>
+        <div class="legend-item"><div class="legend-line" style="background:var(--c-c);opacity:0.6;"></div>C 留存货盘（日常常驻 + 节点加强）</div>
+        <div class="legend-item"><div class="legend-line" style="background:var(--c-d);opacity:0.4;"></div>D 勾子货盘（一店一策，灵活启动）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part 03: 季度落地节奏 -->
+  <div class="section">
+    <div class="section-label">Part 03</div>
+    <h2 class="section-title">Q2–Q4 落地执行节奏</h2>
+    <p class="section-desc">分阶段明确主次货盘重心，便于运营总按时间节点推进。</p>
+
+    <div class="phase-grid">
+      <div class="phase-block" style="border-top: 3px solid var(--c-a);">
+        <div class="phase-tag" style="background:var(--c-a-bg);color:var(--c-a);">Q2 启动期</div>
+        <div style="font-size:11px;color:var(--c-muted);margin-bottom:8px;">2026年4月 – 6月</div>
+        <h4>A货盘为主 · 验证模型</h4>
+        <p>清明后淡季启动，A货盘测试节点转化效率，同步推进B/C货盘常态化。</p>
+        <div class="phase-tasks">
+          <div class="phase-task">520节点 A货盘集中推出</div>
+          <div class="phase-task">端午节 A货盘补足</div>
+          <div class="phase-task">B/C货盘新品上架</div>
+          <div class="phase-task">D货盘：门店弱点诊断</div>
+          <div class="phase-task"><strong style="color:var(--c-s);">S货盘 S-1 规划启动（3-4月）</strong></div>
+        </div>
+      </div>
+
+      <div class="phase-block" style="border-top: 3px solid var(--c-s);">
+        <div class="phase-tag" style="background:var(--c-s-bg);color:var(--c-s);">Q3 爆发期</div>
+        <div style="font-size:11px;color:var(--c-muted);margin-bottom:8px;">2026年7月 – 9月</div>
+        <h4>S超级货盘 · 年度重心</h4>
+        <p>7月补投，8-9月 S-2 超级货盘年度最大规模投放，配合暑期+秋季双节点。</p>
+        <div class="phase-tasks">
+          <div class="phase-task">7月暑期A货盘补投</div>
+          <div class="phase-task"><strong style="color:var(--c-s);">S-2 超级货盘（8-9月）· 年度最大</strong></div>
+          <div class="phase-task">B/C货盘随新品动态调整</div>
+          <div class="phase-task">D货盘全面落地（工作日/午市）</div>
+        </div>
+      </div>
+
+      <div class="phase-block" style="border-top: 3px solid var(--c-red);">
+        <div class="phase-tag" style="background:#FDF0F0;color:#C0392B;">Q4 冲刺期</div>
+        <div style="font-size:11px;color:var(--c-muted);margin-bottom:8px;">2026年10月 – 12月</div>
+        <h4>国庆/双11 · 年内最后高峰</h4>
+        <p>Q4为餐饮全年最高峰，A货盘高频输出，同时为S-3春节超级货盘蓄水。</p>
+        <div class="phase-tasks">
+          <div class="phase-task">国庆A货盘集中打满</div>
+          <div class="phase-task">双11节点A货盘</div>
+          <div class="phase-task">元旦A货盘冲刺</div>
+          <div class="phase-task"><strong style="color:var(--c-s);">S-3 春节超级货盘规划（1月）</strong></div>
+          <div class="phase-task">D货盘：节假日专项（仁和新城等）</div>
+        </div>
+      </div>
+
+      <div class="phase-block" style="border-top: 3px solid #E74C3C;">
+        <div class="phase-tag" style="background:#FDF0F0;color:#E74C3C;">春节冲刺</div>
+        <div style="font-size:11px;color:var(--c-muted);margin-bottom:8px;">2027年1月（春节前）</div>
+        <h4>年度收官 · S+A联动</h4>
+        <p>春节为年度最大流量节点，S-3超级货盘+春节专属A货盘联动，实现全年GMV收官冲刺。</p>
+        <div class="phase-tasks">
+          <div class="phase-task"><strong style="color:var(--c-s);">S-3 春节超级货盘（全年最高量级）</strong></div>
+          <div class="phase-task">春节专属A货盘（节中/节后补投）</div>
+          <div class="phase-task">D货盘：节后淡季精准勾子</div>
+          <div class="phase-task">全年数据复盘 · 2027策略迭代</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part 04: 运营总汇报框架 -->
+  <div class="section">
+    <div class="section-label">Part 04</div>
+    <h2 class="section-title">运营总 · 管理层汇报框架</h2>
+    <p class="section-desc">管理层会议只需 3 分钟，看清全局：节点来了有什么货、用什么打法、谁负责决策。</p>
+
+    <div class="report-flow" style="margin-bottom:32px;">
+      <div class="report-step">
+        <div class="report-step-left">
+          <div class="step-num">STEP 01</div>
+          <div class="step-name">节点识别</div>
+          <div class="step-desc">运营总月度预警</div>
+        </div>
+        <div class="report-step-right">
+          <div style="font-size:13px;font-weight:600;margin-bottom:6px;">本月是否触发A货盘？</div>
+          <div style="font-size:12px;color:var(--c-muted);line-height:1.7;">
+            每月25日运营总输出《月度GMV预警报告》→ 若目标缺口≥5%，立即启动A货盘前置审批 → 缺口＜5%且时间未过半，继续观察
+          </div>
+        </div>
+      </div>
+      <div class="report-step">
+        <div class="report-step-left">
+          <div class="step-num">STEP 02</div>
+          <div class="step-name">货盘确认</div>
+          <div class="step-desc">2个工作日完成</div>
+        </div>
+        <div class="report-step-right">
+          <div style="font-size:13px;font-weight:600;margin-bottom:6px;">按SABC分级匹配对应折扣 &amp; 平台补贴方案</div>
+          <div style="font-size:12px;color:var(--c-muted);line-height:1.7;">
+            <strong style="color:var(--c-text);">S货盘：</strong>提前30天提交集团审批 → <strong style="color:var(--c-text);">A货盘：</strong>运营总决策 → <strong style="color:var(--c-text);">D货盘：</strong>单店店长+运营总确认即可执行
+          </div>
+        </div>
+      </div>
+      <div class="report-step">
+        <div class="report-step-left">
+          <div class="step-num">STEP 03</div>
+          <div class="step-name">执行追踪</div>
+          <div class="step-desc">周度数据反馈</div>
+        </div>
+        <div class="report-step-right">
+          <div style="font-size:13px;font-weight:600;margin-bottom:6px;">核销率 / GMV增量 / 新老客占比</div>
+          <div style="font-size:12px;color:var(--c-muted);line-height:1.7;">
+            丰火传媒每周输出《货盘执行周报》→ 运营总对照月度KPI判断是否追加D货盘补强 → 重大缺口触发A货盘二次补投
+          </div>
+        </div>
+      </div>
+      <div class="report-step">
+        <div class="report-step-left">
+          <div class="step-num">STEP 04</div>
+          <div class="step-name">结果复盘</div>
+          <div class="step-desc">月度/季度闭环</div>
+        </div>
+        <div class="report-step-right">
+          <div style="font-size:13px;font-weight:600;margin-bottom:6px;">货盘ROI / 核销率排名 / 下阶段建议</div>
+          <div style="font-size:12px;color:var(--c-muted);line-height:1.7;">
+            丰火传媒每月出具《货盘效果复盘报告》→ 运营总向管理层汇报 → 为下一节点货盘提供数据依据
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 丰火传媒思路 -->
+    <div class="strategy-box">
+      <h4>📌 四川丰火传媒 · 都氏家货盘执行思路</h4>
+      <ul>
+        <li><strong>S货盘</strong>由丰火传媒全程策划执行，含平台规则对接、补贴申请、达人矩阵联动，集团只需确认折扣政策；</li>
+        <li><strong>A货盘</strong>由丰火传媒提供节点判断依据（GMV预警模型），触发后 48 小时内出方案，运营总快速决策；</li>
+        <li><strong>D货盘</strong>丰火传媒协助每季度对各门店进行弱点诊断，出具《门店时段分析报告》，提出勾子建议，店长执行；</li>
+        <li><strong>汇报机制：</strong>每月1次管理层货盘专项会，丰火传媒输出月度报告 + 下月货盘建议，逻辑闭环，管理层有据可依。</li>
+      </ul>
+      <div class="note">核心逻辑：让管理层从"被动救火"变为"主动布局"，用SABC体系把货盘决策权分层下放，执行效率提升。</div>
+    </div>
+  </div>
+
+  <!-- Part 05: D货盘示例 -->
+  <div class="section">
+    <div class="section-label">Part 05</div>
+    <h2 class="section-title">D货盘 · 门店弱点分析示例</h2>
+    <p class="section-desc">D货盘设计核心：一店一策，从时段/节点弱点出发，以下为例子供管理层参考。</p>
+
+    <div class="d-table">
+      <table>
+        <thead>
+          <tr>
+            <th>门店</th>
+            <th>弱点时段</th>
+            <th>弱点原因</th>
+            <th>建议D货盘方向</th>
+            <th>折扣建议</th>
+            <th>决策人</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="store">仁和新城店</td>
+            <td>节假日后半段 / 春节</td>
+            <td>南门人员流动大，假期后半段客流断崖</td>
+            <td>节后返工套餐 / 开工餐</td>
+            <td>7–8折</td>
+            <td>店长 → 运营总</td>
+          </tr>
+          <tr>
+            <td class="store">IFS店</td>
+            <td>工作日午市（12–14点）</td>
+            <td>写字楼白领午休时段竞争激烈</td>
+            <td>午市单人定食套餐</td>
+            <td>8–8.5折</td>
+            <td>店长</td>
+          </tr>
+          <tr>
+            <td class="store">万象城店</td>
+            <td>工作日晚间（20点后）</td>
+            <td>商圈晚高峰后客流骤降</td>
+            <td>宵夜套餐 / 第二杯畅饮</td>
+            <td>8–8.5折</td>
+            <td>店长 → 运营总</td>
+          </tr>
+          <tr>
+            <td class="store">待扩张门店</td>
+            <td>开业前30天</td>
+            <td>新店认知度低，开业初期爬坡难</td>
+            <td>开业预售代金券 / 霸王餐</td>
+            <td>5–6折</td>
+            <td>运营总</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    本提案由四川丰火传媒有限公司出具 · 仅供都氏家DUSJOY内部使用<br>
+    如有疑问请联系丰火传媒运营团队
+  </div>
+
+</div>
+</body>
+</html>
